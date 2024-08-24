@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Roblox Profile Updater",
+  "version": "1.0",
+  "description": "Update Roblox profile and friends list automatically.",
+  "permissions": [
+      "storage", 
+      "activeTab", 
+      "scripting"
+  ],
+  "host_permissions": [
+      "https://www.roblox.com/*",
+      "https://friends.roblox.com/*",
+      "https://thumbnails.roblox.com/*",
+      "https://users.roblox.com/*"
+  ],
+  "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+  },
+  "background": {
+      "service_worker": "background.js"
+  },
+  "content_scripts": [
+      {
+          "matches": ["https://www.roblox.com/*"],
+          "js": ["content.js"]
+      }
+  ]
+}
